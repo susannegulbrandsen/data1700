@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oblig1</title>
+    <script src="index.js"></script> <!--Link til js kode-->
+    <style> /*Sentrerer teksten og overskriftene i tabellen*/
+        td, th {
+            text-align: center;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!--Flervalgsfelt for de forskjellige filmene-->
+<h1>Bestilling av kinobilletter</h1>
+<form id="billettskjema">
+        <label for="filmtittel" style="font-weight: bold">Velg film:</label>
+        <select id="filmtittel" style="display: block" required>
+            <option value="" disabled selected>Velg en film</option>
+            <option value="The Hunger Games">The Hunger Games</option>
+            <option value="Barbie">Barbie</option>
+            <option value="Oppenheimer">Oppenheimer</option>
+        </select>
+    <br>
+
+
+    <!--Kommentarer for label og input:
+    - type gir indikator på type verdi
+    - onfocus vil resette inputfeltet når du trykker på det
+    - style, fet skrift, rød skrift på span, display block for mer ryddig layout
+    - required, man må fylle feltene
+    - onchange, når feltet endres kalles funksjonen som skal validere verdien
+    - Legger inn usynlige advarsler(span)for verdi-->
+
+        <label for="antallbilletter" style="font-weight: bold">Antall
+            <input type="number" onfocus="this.value=''" id="antallbilletter" style="display: block" required>
+        </label>
+    <br>
+
+        <label for="fornavn" style="font-weight: bold">Fornavn
+            <input type="text" onchange="validatefornavn()" onfocus="this.value=''" id="fornavn" style="display: block" required>
+        </label>
+        <span id="fornavnfail" style="display: none; color: red">Ugyldig fornavn</span><br>
+
+        <label for="etternavn" style="font-weight: bold">Etternavn
+            <input type="text" onchange="validateetternavn()" onfocus="this.value=''" id="etternavn" style="display: block" required>
+        </label>
+        <span id="etternavnfail" style="display: none; color: red">Ugyldig etternavn</span><br>
+
+        <label for="telefonnr" style="font-weight: bold">Telefonnr
+            <input type="tel" onchange="validatetel()" onfocus="this.value=''" id="telefonnr" style="display: block" required>
+        </label>
+            <span id="telfail" style="display: none; color: red">Ugyldig telefonnummer</span><br>
+
+        <label for="epost" style="font-weight: bold">Epost
+            <input type="email" onchange="validateemail()" onfocus="this.value=''" id="epost" style="display: block" required>
+        </label>
+            <span id="emailfail" style="display: none; color: red">Ugyldig epost</span>
+    <br><br>
+</form>
+
+<button type="button" onclick="leggtil()">Kjøp billetter</button> <!--onclick, knappen trykkes på og kalle funksjonen-->
+
+
+
+<h2>Alle billetter</h2>
+
+<!--Tabell hvor de registrerte billettene blir lagt inn:
+- thead, overskriftene i tabellen
+-tbody, billettene registreres inn her-->
+<table id="billetttabell">
+    <thead>
+        <th>Filmtittel</th>
+        <th>Antall billetter</th>
+        <th>Fornavn</th>
+        <th>Etternavn</th>
+        <th>Telefonnr</th>
+        <th>Epost</th>
+    </thead>
+   <tbody id="registrertbillett"></tbody>
+</table>
+
+
+
+
+<button onclick="slettbilletter()">Slett alle billettene</button>
+</body>
+</html>
