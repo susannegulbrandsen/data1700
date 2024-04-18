@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="index.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Oblig 2</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Kinobilletter</h3>
+            <form class="form">
+                <div class="form-group">
+                    <h2><small>Filmtittel: </small></h2><select class="form-control" id="filmtittel">
+                        <option value="" disabled selected>Velg en film</option>
+                        <option value="The Hunger Games">The Hunger Games</option>
+                        <option value="Barbie">Barbie</option>
+                        <option value="Oppenheimer">Oppenheimer</option>
+                    </select></br>
+                </div>
+                <div class="form-group">
+                    <h2><small>Antall billetter: </small></h2><input type="number" id="antallbilletter"/>
+                    <h2><small>Fornavn :</small></h2><input class="form-control" type="text" id="fornavn"/>
+                    <span id="fornavnfail" style="display: none; color: red">Ugyldig fornavn</span>
+                </div>
+                <div class="form-group">
+                    <h2><small>Etternavn :</small></h2><input class="form-control" type="text" id="etternavn"/>
+                    <span id="etternavnfail" style="display: none; color: red">Ugyldig etternavn</span>
+                </div>
+                <div class="form-group">
+                    <h2><small>Telefonnr :</small></h2><input class="form-control" type="text" id="telefonnr"/>
+                    <span id="telefonnrfail" style="display: none; color: red">Ugyldig telefonnr</span>
+                </div>
+                <div class="form-group">
+                    <h2><small>Epost :</small></h2><input class="form-control" type="text" id="epost"/>
+                    <span id="epostfail" style="display: none; color: red">Ugyldig epost</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-primary" onclick="regBillett()">Registrer</button><br/>
+<h3>Alle billettene:</h3>
+<div  id="billettene"></div>
+
+<button class="btn btn-danger" onclick="slettBillettene()">Slett alle billetter</button>
+
+</body>
+</html>
